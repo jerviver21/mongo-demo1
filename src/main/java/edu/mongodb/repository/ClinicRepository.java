@@ -3,7 +3,7 @@ package edu.mongodb.repository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-import edu.mongodb.domain.Clinic;
+import edu.mongodb.model.Clinic;
 import reactor.core.publisher.Mono;
 
 public interface ClinicRepository extends ReactiveCrudRepository<Clinic, String> {

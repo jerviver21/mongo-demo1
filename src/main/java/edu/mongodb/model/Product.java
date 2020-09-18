@@ -1,6 +1,7 @@
-package edu.mongodb.domain;
+package edu.mongodb.model;
 
-import java.util.Collection;
+import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -8,25 +9,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Document
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Clinic {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Product {
 	
 	@Id
+	@EqualsAndHashCode.Include
 	private String id;
+	
 	private String name;
+	private BigDecimal price;
+	private String description;
 	
 	@DBRef
-	private Collection<Doctor> doctors;
-	
-	public Clinic(String id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+	List<Procedure> procedures;
 	
 
 }
