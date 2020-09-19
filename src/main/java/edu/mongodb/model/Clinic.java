@@ -25,7 +25,7 @@ public class Clinic {
 	private String user;
 	private String timezone;
 	private String logo;
-	private String clinicInformacion;
+	private String clinicInformation;
 	private String currency;
 	private String manager;
 	private String phoneNumber;

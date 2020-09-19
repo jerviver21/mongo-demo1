@@ -21,8 +21,7 @@ public class SaleDetail {
 	@EqualsAndHashCode.Include
 	private String id;
 	
-	@DBRef
-	private Procedure procedure;
+	private String procedureId;
 	
 	private Boolean completed;
 	

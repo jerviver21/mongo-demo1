@@ -24,11 +24,9 @@ public class Appointment {
 	@EqualsAndHashCode.Include
 	private String id;
 	
-	@DBRef
-	private Doctor doctor;
+	private String doctorId;
 	
-	@DBRef
-	private Patient patient;
+	private Patient patientId;
 	
 	private LocalDate date;
 	private LocalTime time;

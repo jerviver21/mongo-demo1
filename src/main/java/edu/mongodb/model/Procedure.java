@@ -1,6 +1,7 @@
 package edu.mongodb.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +23,8 @@ public class Procedure {
 	private String name;
 	private String code;
 	private String description;
+	
+	private String clinicId;
 	
 	
 

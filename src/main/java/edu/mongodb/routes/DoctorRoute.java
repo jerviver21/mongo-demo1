@@ -24,6 +24,7 @@ public class DoctorRoute {
 				.andRoute(RequestPredicates.DELETE(DOCTOR_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::deleteAll)
 				.andRoute(RequestPredicates.GET(DOCTOR_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getEntity)
 				.andRoute(RequestPredicates.PUT(DOCTOR_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::update)
+				.andRoute(RequestPredicates.PATCH(DOCTOR_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::patch)
 				.andRoute(RequestPredicates.DELETE(DOCTOR_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::delete);
 	}
 

@@ -27,8 +27,9 @@ public class Product {
 	private BigDecimal price;
 	private String description;
 	
-	@DBRef
-	List<Procedure> procedures;
+	List<String> procedureIds;
+	
+	private String clinicId;
 	
 
 }

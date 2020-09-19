@@ -24,6 +24,7 @@ public class SaleRoute {
 				.andRoute(RequestPredicates.DELETE(SALE_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::deleteAll)
 				.andRoute(RequestPredicates.GET(SALE_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getEntity)
 				.andRoute(RequestPredicates.PUT(SALE_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::update)
+				.andRoute(RequestPredicates.PATCH(SALE_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::patch)
 				.andRoute(RequestPredicates.DELETE(SALE_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::delete);
 	}
 

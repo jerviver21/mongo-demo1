@@ -30,14 +30,7 @@ public class Sale {
 	private Integer quantity;
 	private BigDecimal totalPrice;
 	
-	@DBRef
-	private Product product;
-	
-	@DBRef
-	private Patient patient;
-	
-	@DBRef
-	private Clinic clinic;
+	private String productId;
 	
 	private List<SaleDetail> detail;
 	

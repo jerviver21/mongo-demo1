@@ -24,6 +24,7 @@ public class ProductRoute {
 				.andRoute(RequestPredicates.DELETE(PRODUCT_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::deleteAll)
 				.andRoute(RequestPredicates.GET(PRODUCT_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getEntity)
 				.andRoute(RequestPredicates.PUT(PRODUCT_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::update)
+				.andRoute(RequestPredicates.PATCH(PRODUCT_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::patch)
 				.andRoute(RequestPredicates.DELETE(PRODUCT_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::delete);
 	}
 

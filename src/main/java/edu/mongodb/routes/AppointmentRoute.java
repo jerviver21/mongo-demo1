@@ -24,6 +24,7 @@ public class AppointmentRoute {
 				.andRoute(RequestPredicates.DELETE(APPOINTMENT_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::deleteAll)
 				.andRoute(RequestPredicates.GET(APPOINTMENT_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getEntity)
 				.andRoute(RequestPredicates.PUT(APPOINTMENT_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::update)
+				.andRoute(RequestPredicates.PATCH(APPOINTMENT_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::patch)
 				.andRoute(RequestPredicates.DELETE(APPOINTMENT_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::delete);
 	}
 
