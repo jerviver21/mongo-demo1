@@ -1,7 +1,7 @@
 package edu.mongodb.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +20,12 @@ public class Procedure {
 	@EqualsAndHashCode.Include
 	private String id;
 	
+	//Reactive Spring Mongo is not creating the indexes.
+	@Indexed(name="name_idx", unique = true) 
 	private String name;
+	
+	//Reactive Spring Mongo is not creating the indexes.
+	@Indexed(name="code_idx", unique = true) 
 	private String code;
 	private String description;
 	

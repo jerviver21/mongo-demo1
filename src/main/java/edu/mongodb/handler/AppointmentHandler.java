@@ -6,10 +6,7 @@ import edu.mongodb.model.Appointment;
 import edu.mongodb.repository.AppointmentRepository;
 
 @Component
-public class AppointmentHandler extends GenericHandler<Appointment> {
+public class AppointmentHandler{
 	
-	public AppointmentHandler(AppointmentRepository repository) {
-		super(repository, Appointment.class);
-	}
 	
 }

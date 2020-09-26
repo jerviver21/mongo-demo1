@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +23,10 @@ public class Product {
 	@EqualsAndHashCode.Include
 	private String id;
 	
+	//Reactive Spring Mongo is not creating the indexes.
+	@Indexed(name="doctor_idx", unique = true) 
 	private String name;
+	
 	private BigDecimal price;
 	private String description;
 	

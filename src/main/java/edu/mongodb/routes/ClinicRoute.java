@@ -24,11 +24,7 @@ public class ClinicRoute {
 				.andRoute(RequestPredicates.DELETE(CLINIC_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::deleteAll)
 				.andRoute(RequestPredicates.GET(CLINIC_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getEntity)
 				.andRoute(RequestPredicates.PUT(CLINIC_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::update)
-				.andRoute(RequestPredicates.PATCH(CLINIC_PATH+ID_PATH).and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::patch)
-				.andRoute(RequestPredicates.DELETE(CLINIC_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::delete)
-				.andRoute(RequestPredicates.GET("/query").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::query);
-				//.andRoute(RequestPredicates.GET("/specific").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getClinicByName1)
-				//.andRoute(RequestPredicates.GET("/clinicByName").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::getClinicByName);
+				.andRoute(RequestPredicates.DELETE(CLINIC_PATH+ID_PATH).and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::delete);
 	}
 
 }

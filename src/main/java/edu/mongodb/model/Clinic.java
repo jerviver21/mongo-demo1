@@ -3,6 +3,7 @@ package edu.mongodb.model;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +21,9 @@ public class Clinic {
 	@Id
 	@EqualsAndHashCode.Include
 	private String id;
+	
+	//Reactive Spring Mongo is not creating the indexes.
+	@Indexed(name="clinic_idx", unique = true) 
 	private String name;
 	
 	private String user;
