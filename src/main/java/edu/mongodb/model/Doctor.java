@@ -25,7 +25,7 @@ public class Doctor {
 	private String skills;
 	
 	//Reactive Spring Mongo is not creating the indexes.
-	@Indexed(name="doctor_idx", unique = true)  
+	@Indexed(name="doctor_email_idx", unique = true)  
 	private String email;
 	
 	private String clinicId;

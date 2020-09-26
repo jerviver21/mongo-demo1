@@ -24,7 +24,7 @@ public class Product {
 	private String id;
 	
 	//Reactive Spring Mongo is not creating the indexes.
-	@Indexed(name="doctor_idx", unique = true) 
+	@Indexed(name="product_name_idx", unique = true) 
 	private String name;
 	
 	private BigDecimal price;

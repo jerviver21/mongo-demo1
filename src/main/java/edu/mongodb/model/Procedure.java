@@ -21,11 +21,11 @@ public class Procedure {
 	private String id;
 	
 	//Reactive Spring Mongo is not creating the indexes.
-	@Indexed(name="name_idx", unique = true) 
+	@Indexed(name="procedure_name_idx", unique = true) 
 	private String name;
 	
 	//Reactive Spring Mongo is not creating the indexes.
-	@Indexed(name="code_idx", unique = true) 
+	@Indexed(name="procedure_code_idx", unique = true) 
 	private String code;
 	private String description;
 	
