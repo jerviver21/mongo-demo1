@@ -1,10 +1,10 @@
 package edu.mongodb.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -39,6 +39,14 @@ public class Patient {
 	List<Sale> sales;
 	
 	private String clinicId;
+	
+	
+	public void addSale(Sale s) {
+		if (sales == null) {
+			sales =  new ArrayList<>();
+		}
+		sales.add(s);
+	}
 	
 
 }

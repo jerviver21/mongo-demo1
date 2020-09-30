@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -18,7 +17,7 @@ public class History {
 	
 	@Id
 	@EqualsAndHashCode.Include
-	private String id;
+	private Integer id;
 	
 	@DBRef
 	private Appointment appointment;
