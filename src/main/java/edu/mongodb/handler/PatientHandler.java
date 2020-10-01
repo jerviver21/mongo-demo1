@@ -22,13 +22,13 @@ public class PatientHandler extends GenericServiceHandler<Patient> {
 	}
 	
 	public Mono<ServerResponse> getAll(ServerRequest request) {
-		Flux<Patient	> entitys = service.getAll(request);
+		Flux<Patient> entitys = service.getAll(request);
 		
 		System.out.println(entitys);
 		
 		return ServerResponse.ok()
 				.contentType(MediaType.APPLICATION_JSON)
-				.body(entitys, Doctor.class);
+				.body(entitys, Patient.class);
 	}
 	
 	public Mono<ServerResponse> deleteAll(ServerRequest request) {	
