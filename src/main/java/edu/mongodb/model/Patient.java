@@ -34,9 +34,11 @@ public class Patient {
 	@Indexed(name="patient_email_idx", unique = true) 
 	private String email;
 	
-	List<History> history;
+	private List<History> history;
 	
-	List<Sale> sales;
+	private List<Sale> sales;
+	
+	private DentalMap dentalMap;
 	
 	private String clinicId;
 	

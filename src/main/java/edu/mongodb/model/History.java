@@ -1,8 +1,6 @@
 package edu.mongodb.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +15,17 @@ public class History {
 	
 	@Id
 	@EqualsAndHashCode.Include
-	private Integer id;
+	private String id;
 	
-	@DBRef
-	private Appointment appointment;
+	private String saleId;
+	
+	private String detailId;
+	
+	private String appointmentId;
 	
 	private String information;
+	
+	private DentalMap dentalMap;
 	
 	
 	

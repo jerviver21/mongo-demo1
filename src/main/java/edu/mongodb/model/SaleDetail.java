@@ -2,6 +2,8 @@ package edu.mongodb.model;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,9 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class SaleDetail {
-	
+
 	@EqualsAndHashCode.Include
-	private Integer id;
+	@Id
+	private String id;
 	
 	private String procedureId;
 	

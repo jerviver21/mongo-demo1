@@ -7,7 +7,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.server.ServerRequest;
 
@@ -32,7 +35,8 @@ public class SaleService {
 	private ProductRepository productRepository;
 	private PatientRepository patientRepository;
 	
-	public SaleService(SaleRepository repository, ProductRepository productRepository, PatientRepository patientRepository) {
+	public SaleService(SaleRepository repository, ProductRepository productRepository, 
+			PatientRepository patientRepository) {
 		this.repository = repository;
 		this.productRepository = productRepository;
 		this.patientRepository = patientRepository;
@@ -58,41 +62,36 @@ public class SaleService {
 	}
 	
 	public Patient addSalesToPatient(Patient p, List<Sale> sales) {
-		for (Sale sale : sales) {
-			p.addSale(sale);
-			sale.setId(p.getSales().size());
-		}
+		p.getSales().addAll(sales);
 		return p;
 	}
 	
 	
 	public Sale createNewSales(Product product, Integer quantity) {
 		Sale sale = new Sale();
+		sale.setId(new ObjectId().toHexString());
 		sale.setDate(LocalDate.now());
 		sale.setTime(LocalTime.now());
 		sale.setQuantity(quantity);
 		sale.setTotalPrice(product.getPrice().multiply(new BigDecimal(quantity).setScale(2, RoundingMode.HALF_UP)));
 		sale.setProductId(product.getId());
 		
-		List<SaleDetail> detail  = new ArrayList<>();
-		
-		for (String procedureId:product.getProcedureIds()) {
-			for (int i=0; i<quantity; i++) {
-				SaleDetail sd = createNewSaleDetail(procedureId, detail.size());
-				detail.add(sd);
-			}
-		}
+		List<SaleDetail> detail  = IntStream.range(0, quantity)
+				.mapToObj(n -> product.getProcedureIds())
+				.flatMap(p -> p.stream())
+				.map(p -> createNewSaleDetail(p))
+				.collect(Collectors.toList());
 		
 		sale.setDetail(detail);
-		
+
 		return sale;
 	}
 	
-	public SaleDetail createNewSaleDetail(String procedureId, Integer id) {
+	public SaleDetail createNewSaleDetail(String procedureId) {
 		SaleDetail sd = new SaleDetail();
 		sd.setProcedureId(procedureId);
 		sd.setCompleted(false);
-		sd.setId(id);
+		sd.setId(new ObjectId().toHexString()); 
 		return sd;
 	}
 
