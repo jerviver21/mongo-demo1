@@ -62,6 +62,9 @@ public class SaleService {
 	}
 	
 	public Patient addSalesToPatient(Patient p, List<Sale> sales) {
+		if (p.getSales() == null) {
+			p.setSales(new ArrayList<>());
+		}
 		p.getSales().addAll(sales);
 		return p;
 	}
