@@ -1,17 +1,9 @@
 package edu.mongodb.routes;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.server.RequestPredicates;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.RouterFunctions;
-import org.springframework.web.reactive.function.server.ServerResponse;
-
-import edu.mongodb.handler.AppointmentHandler;
 
 @Configuration
-public class AppointmentRoute {
+public class SaleDetailRoute {
 	public static final String CLINIC_PATH = "/clinics";
 	public static final String CLINIC_ID_PATH = "/{clinicId}";
 	public static final String PATIENT_PATH = "/patients";
@@ -22,8 +14,8 @@ public class AppointmentRoute {
 	public static final String DETAIL_ID_PATH = "/{detailId}";
 	
 	
-	@Bean
-	RouterFunction<ServerResponse> appointmentRoutes(AppointmentHandler handler ) {
+	/*@Bean
+	RouterFunction<ServerResponse> detailRoutes(SaleHandler handler ) {
 		//The order is important to avoid confuse {id} with a route
 		return RouterFunctions
 				.route(RequestPredicates.POST(
@@ -36,5 +28,5 @@ public class AppointmentRoute {
 						DETAIL_PATH+
 						DETAIL_ID_PATH)
 						.and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), handler::save);
-	}
+	}*/
 }

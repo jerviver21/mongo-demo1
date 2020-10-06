@@ -25,11 +25,9 @@ public class Appointment {
 	
 	private String doctorId;
 	
-	private Patient patientId;
-	
 	private LocalDate date;
 	private LocalTime time;
-	private Duration duration;
+	private Integer duration;
 	private String calendarEventId;
 	
 	private Checkin checkin;
